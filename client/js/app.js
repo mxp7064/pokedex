@@ -31,7 +31,7 @@ app.directive('checkImage', function() {
     return {
        link: function(scope, element, attrs) {
           element.bind('error', function() {
-             element.attr('src', 'https://pokedex-marko-pancirov.herokuapp.com/images/default_pokemon_image.gif'); // set default image
+             element.attr('src', 'https://shonnafails.files.wordpress.com/2018/01/pokeball.png?w=100&h=100&crop=1'); // set default image
           });
         }
     }

@@ -38,7 +38,7 @@
                     <li class="page-item" ng-click="previous()" ng-class="{ 'active': currentPage == 1 }">
                         <span class="page-link" >{{ currentPage > 1 ? currentPage - 1 : currentPage }}</span>
                     </li>
-                    <li class="page-item" ng-click="middle()" ng-class="{ 'active': currentPage > 1 && currentPage <= maxPage }" ng-show="maxPage > 1">
+                    <li class="page-item" ng-click="middle()" ng-class="{ 'active': currentPage > 1 && currentPage < maxPage && currentPage > 2 }" ng-show="maxPage > 1">
                         <span class="page-link">{{ currentPage > 1 ? currentPage : currentPage + 1 }}</span>
                     </li>
                     <li class="page-item" ng-click="nextS()" ng-class="{ 'active': currentPage == maxPage }" ng-show="maxPage > 2">
