@@ -12,7 +12,7 @@ app.controller('my_pokemon_controller', function ($scope, $http, $location) {
     };
 
     $scope.getPokemons = function (page) {
-       
+        
         var myPokemons = JSON.parse(localStorage.getItem("myPokemons"));
 
         if(myPokemons != null) {
