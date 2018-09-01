@@ -47,7 +47,7 @@ app.controller('pokemon_detail_controller', function ($scope, $http, $routeParam
 
         }, function () {
             alert("Something went wrong");
-            $scope.loadingFlag = false; 
+            $scope.loadingFlag = true; 
         });
     }
 
