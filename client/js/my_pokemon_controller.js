@@ -26,8 +26,9 @@ app.controller('my_pokemon_controller', function ($scope, $http, $location) {
             $scope.currentPage = 1;
             $scope.maxPage = 1;
             $scope.pokemons = [];
-            setNoPokemonsFlag();
         }
+
+        setNoPokemonsFlag();
     }
 
     $scope.init();
