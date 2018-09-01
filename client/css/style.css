@@ -1,0 +1,156 @@
+@font-face {
+    font-family: "Play";
+    src: url("../fonts/Play-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Play Bold";
+    src: url("../fonts/Play-Bold.ttf");
+}
+
+#navigation {
+    border: 1px solid black;
+    font-size: 18px;
+}
+
+body{
+    background-color: #ffa200;
+    background-image: url("https://www.transparenttextures.com/patterns/light-wool.png");
+    font-family: "Play", sans-serif;
+}
+
+h4{font-family: "Play", sans-serif }
+
+#content{
+    background: rgba(0, 195, 255, 0.71);
+}
+.pokemon:hover {
+    background: #ffa200 !important;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a:active {
+    text-decoration: none;
+}
+
+.pokemonCont a:hover h4{
+    color: black !important;
+}
+
+.redish-bg{
+    background: #ff7070;
+}
+
+.pokemon {
+    background: #ff7070;
+    display: block;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    
+    -webkit-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+}
+
+.pokemon:hover,
+.pokemon:focus,
+.pokemon:active {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+    -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+    transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+}
+
+#pagination {
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.page-item.active .page-link{
+    background: #ffa200 ;
+    border-color: #ffa200;
+}
+
+.page-link{
+    color: black;
+}
+
+.pokemonName{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.message {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+
+#pokemonTitle {
+    font-weight: bold;
+    font-size: 38px;
+}
+
+#arrowBack{
+    font-size: 42px;
+}
+
+#arrowBack:hover {
+    color: darkgray;
+}
+
+toggle .toggle-header {
+	height: 24px;
+	background-color: #ff7070;
+}
+toggle .toggle-header:hover {
+	background-color: #CCC;
+}
+toggle .toggle-header:hover span {
+	color: #7A7A7A;
+}
+toggle .toggle-body.border {
+	border: solid 1px #CCC;
+}
+toggle .toggle-header .icon.chevron div {
+	border-color: #ffa200;
+}
+toggle .toggle-header:hover .icon.chevron div {
+	border-color: #FFF;
+}
+
+.hide{
+    position: absolute;
+   top: -9999px;
+   left: -9999px;
+}
+
+.myButton {
+    outline: none;
+    font-size: 18px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-right: 16px;
+    padding-left: 16px;
+}
+
+.myButton:active {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+}
+
+@media only screen and (max-width: 400px) {
+    #pagination {
+        font-size: 11px;
+    }
+}

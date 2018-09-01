@@ -1,0 +1,62 @@
+<div>
+    <div class="w3-bar my-2" id="navigation">
+        <a ng-href="/pokedex"><button class="w3-bar-item col-6 w-100" ng-class="{ 'w3-teal': isSet(1), 'w3-button': !isSet(1) }" >Pokedex</button></a>
+        <a ng-href="/mypokemon"><button class="w3-bar-item col-6 w-100" ng-class="{ 'w3-teal': isSet(2), 'w3-button': !isSet(2) }" >My pokemon</button></a>
+    </div>
+
+    <div>
+
+        <div class="w3-center message m-5" ng-show="noPokemonsFlag">No pokemons to display!</div>
+
+        <div ng-show="loadingFlag" class="w3-center m-5">
+            <img id="loadingIcon" class="img-fluid" width="310" src="images/loading_pokeball.gif" alt="Loading" />
+        </div>
+
+        <div ng-show="pokemons.length > 0 && !loadingFlag" >
+
+            <div class="row">
+                <div ng-repeat="p in pokemons track by $index" class="col-lg-3 col-md-4 col-sm-6 pokemonCont p-3">
+                    <a ng-href="/pokemon/{{p.id}}" >
+                        <div class="text-center w3-card p-2 pb-3 pokemon">
+                            <img check-image ng-src="{{p.url }}" alt="Pokemon Image" class="img-fluid"/>
+                            <h4 class="text-white m-0 pokemonName">{{ p.name | capitalize }}</h4>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="text-center" id="pagination">
+                    
+                <ul class="pagination justify-content-center">
+
+                    <li class="page-item" ng-click="first()" ng-class="{ 'disabled': currentPage == 1 }">
+                        <span class="page-link">First</span>
+                    </li>
+                    <li class="page-item" ng-click="previous()" ng-class="{ 'disabled': currentPage == 1 }">
+                        <span class="page-link">Previous</span>
+                    </li>
+                    <li class="page-item" ng-click="previous()" ng-class="{ 'active': currentPage == 1 }">
+                        <span class="page-link" >{{ currentPage > 1 ? currentPage - 1 : currentPage }}</span>
+                    </li>
+                    <li class="page-item" ng-click="middle()" ng-class="{ 'active': currentPage > 1 && currentPage <= maxPage }" ng-show="maxPage > 1">
+                        <span class="page-link">{{ currentPage > 1 ? currentPage : currentPage + 1 }}</span>
+                    </li>
+                    <li class="page-item" ng-click="nextS()" ng-class="{ 'active': currentPage == maxPage }" ng-show="maxPage > 2">
+                        <span class="page-link">{{ currentPage > 1 ? currentPage + 1 : currentPage + 2 }}</span>
+                    </li>
+                    <li class="page-item" ng-click="next()" ng-class="{ 'disabled': currentPage == maxPage  }">
+                        <span class="page-link">Next</span>
+                    </li>
+                    <li class="page-item" ng-click="last()" ng-class="{ 'disabled': currentPage == maxPage }">
+                        <span class="page-link">Last</span>
+                    </li>
+
+                </ul>
+                        
+            </div>
+
+        </div>
+
+    </div>
+    
+</div>

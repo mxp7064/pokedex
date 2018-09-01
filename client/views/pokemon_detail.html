@@ -1,0 +1,80 @@
+<a href="javascript:void(0);" ng-click="go_back()">
+    <i class="fa fa-arrow-left" id="arrowBack"></i>
+</a>
+
+<div ng-show="loadingFlag" class="w3-center m-5">
+        <img id="loadingIcon" class="img-fluid" width="310" src="http://localhost:4500/images/loading_pokeball.gif" alt="Loading" />
+    </div>
+
+<div ng-if="!loadingFlag">
+
+    <h1 id="pokemonTitle" class="text-center pokemonName">
+        {{ pokemon.name | capitalize }}
+    </h1>
+
+    <div class="container text-center">
+        <img check-image ng-src="{{ pokemon.sprites.front_default }}" alt="Pokemon Image" class="img-fluid w3-card p-2 mx-auto redish-bg"/>
+    </div>
+
+    <div class="text-center">
+        <h5> {{ (pokemon.name | capitalize) + (isMyPokemon ? " is your pokemon!" : pokemon.name + " is not your pokemon!") }} </h5>
+        <button class="w3-button w3-teal myButton" ng-click="addToMyPokemon()" ng-show="!isMyPokemon">Add</button>
+        <button class="w3-button w3-teal myButton" ng-click="removeFromMyPokemon()" ng-show="isMyPokemon">Remove</button>
+    </div>
+
+    <div class="row">
+
+        <div class="col-lg-4 col-md-6">
+            <h4 class="text-center mt-4">Types</h4>
+
+            <div class="container">
+                <div class="d-flex justify-content-center">
+                    <div class="w3-card py-2 px-3 text-white m-2 redish-bg text-center" ng-repeat="type in pokemon.types">
+                        {{ type.type.name | uppercase }}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+            <h4 class="text-center mt-4">Stats</h4>
+
+            <div class="text-center">
+                <div class="m-1 text-white" ng-repeat="stat in pokemon.stats">
+
+                    <h4 class="">{{ stat.stat.name | uppercase }}: {{ stat.base_stat }}</h4>    
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4 col-md-12">
+            <h4 class="text-center mt-4">Abilities</h4>
+
+            <div class="text-center">
+                <div class="m-1 text-white" ng-repeat="ability in pokemon.abilities">
+
+                    <h4 class="">{{ ability.ability.name | uppercase }}</h4>    
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <h4 class="text-center mt-4">Moves</h4>
+        
+    <div class="container m-0 p-0">
+        <accordion class="row m-0"
+            handle="myaccordion"
+            timing="200"
+            close-others="true"
+            toggle-icon="chevron">
+            <toggle class="px-2 mb-2 col-md-6 col-sm-12" id="toggle-{{$index}}"
+                heading="move.move.name | uppercase"
+                ng-repeat="move in pokemon.moves track by $index" 
+                ng-model="move.move" 
+                model-name="move" 
+                content-url="'/views/accordion_template.html'"></toggle>
+        </accordion>
+    </div>
+</div>
+

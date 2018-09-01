@@ -1,0 +1,13 @@
+<div ng-class="{ 'hide': move.data == null }" class="container p-2 bg-white">
+    <div class="row">
+        <span class="col-sm col-xs-12"><span class="font-weight-bold">Power: </span> {{ move.data.power == null ? "N/A" : move.data.power }} </span>
+        <span class="col-sm col-xs-12"><span class="font-weight-bold">Accuracy: </span> {{ move.data.accuracy == null ? "N/A" : move.data.accuracy}} </span>
+        <span class="col-sm col-xs-12"><span class="font-weight-bold">Type: </span> {{ move.data.type.name | capitalize }} </span>
+    </div>
+
+    <div class="mt-2" >{{ move.data.effect_entries[0].effect == null ? "N/A" : move.data.effect_entries[0].effect }}</div>
+</div>
+
+<div ng-hide="move.data != null" class="w3-center">
+    <img id="loadingIcon" class="img-fluid" width="100" src="http://localhost:4500/images/loading_move.gif" alt="Loading" />
+</div>
